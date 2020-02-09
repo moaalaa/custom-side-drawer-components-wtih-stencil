@@ -10,6 +10,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface MxcdSideDrawer {}
   interface MyComponent {
     /**
     * The first name
@@ -29,17 +30,25 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLMxcdSideDrawerElement extends Components.MxcdSideDrawer, HTMLStencilElement {}
+  var HTMLMxcdSideDrawerElement: {
+    prototype: HTMLMxcdSideDrawerElement;
+    new (): HTMLMxcdSideDrawerElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'mxcd-side-drawer': HTMLMxcdSideDrawerElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface MxcdSideDrawer {}
   interface MyComponent {
     /**
     * The first name
@@ -56,6 +65,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'mxcd-side-drawer': MxcdSideDrawer;
     'my-component': MyComponent;
   }
 }
@@ -66,6 +76,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'mxcd-side-drawer': LocalJSX.MxcdSideDrawer & JSXBase.HTMLAttributes<HTMLMxcdSideDrawerElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
   }
