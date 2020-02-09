@@ -31,6 +31,9 @@
 
 <body>
 	<!-- <my-component first="StencilJs" last="'Don't call me a framework' JS"></my-component> -->
+
+	<button id="open-menu-btn" style="position:absolute; right: 0">Open Menu</button>
+
 	<mxcd-side-drawer side-title="My Drawer Title">
 		<nav class="side-nav">
 			<!-- We Can't Style Nested Content with ::slotted Becaus Slot Can Style Top Level element but not nested -->
@@ -44,11 +47,20 @@
 	</mxcd-side-drawer>
 
 	<script>
+		const sideDrawer = document.querySelector("mxcd-side-drawer");
+		const openMenuBtn = document.querySelector('#open-menu-btn');
+
+		openMenuBtn.addEventListener('click', () => {
+
+			if (!sideDrawer.opened) {
+				sideDrawer.opened = true;
+				// sideDrawer.setAttribute('open', true);
+			}
+		})
 		// setTimeout(() => {
 			// document.querySelector("mxcd-side-drawer").sideTitle = "Changed By Js From Property";
 			// document.querySelector('mxcd-side-drawer').setAttribute('side-title', 'Changed By Js From Attribute');
 		// }, 3000);
-
 	</script>
 </body>
 

@@ -11,6 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface MxcdSideDrawer {
+    'opened': boolean;
     'sideTitle': string;
   }
   interface MyComponent {
@@ -51,6 +52,7 @@ declare global {
 
 declare namespace LocalJSX {
   interface MxcdSideDrawer {
+    'opened'?: boolean;
     'sideTitle'?: string;
   }
   interface MyComponent {
