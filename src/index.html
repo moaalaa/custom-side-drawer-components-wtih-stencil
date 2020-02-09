@@ -12,7 +12,13 @@
 <body>
 
   <!-- <my-component first="StencilJs" last="'Don't call me a framework' JS"></my-component> -->
-  <mxcd-side-drawer></mxcd-side-drawer>
+  <mxcd-side-drawer side-title="My Drawer Title"></mxcd-side-drawer>
 
+  <script>
+    setTimeout(() => {
+      document.querySelector('mxcd-side-drawer').sideTitle = 'Changed By Js From Property';
+      // document.querySelector('mxcd-side-drawer').setAttribute('side-title', 'Changed By Js From Attribute');
+    }, 3000);
+  </script>
 </body>
 </html>
