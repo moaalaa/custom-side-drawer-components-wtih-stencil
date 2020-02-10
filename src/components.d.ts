@@ -11,6 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface MxcdSideDrawer {
+    'open': () => Promise<void>;
     'opened': boolean;
     'sideTitle': string;
   }
