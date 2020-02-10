@@ -1,4 +1,4 @@
-import { Component, h, Method, Prop, State } from "@stencil/core";
+import { Component, h, Host, Method, Prop, State } from "@stencil/core";
 
 @Component({
 	tag: "mxcd-side-drawer",
@@ -52,25 +52,29 @@ export class SideDrawer {
 		}
 
 		return (
-			<aside>
-				<header>
-					<h1>{this.sideTitle}</h1>
-					<button onClick={this.close.bind(this)}>&times;</button>
-				</header>
-				<section id="tabs">
-					<button 
-						class={!this.showContactInfo ? 'active' : ''} 
-						onClick={this.changeContent.bind(this, 'nav')}
-					>Navigation</button>
-					<button 
-						class={this.showContactInfo ? 'active' : ''}
-						onClick={this.changeContent.bind(this, 'contact')}
-					>Contact</button>
-				</section>
-				<main>
-					{mainContent}
-				</main>
-			</aside>
+			<Host>
+				<div id="backdrop" onClick={this.close.bind(this)}></div>
+				<aside>
+					<header>
+						<h1>{this.sideTitle}</h1>
+						<button onClick={this.close.bind(this)}>&times;</button>
+					</header>
+					<section id="tabs">
+						<button 
+							class={!this.showContactInfo ? 'active' : ''} 
+							onClick={this.changeContent.bind(this, 'nav')}
+						>Navigation</button>
+						<button 
+							class={this.showContactInfo ? 'active' : ''}
+							onClick={this.changeContent.bind(this, 'contact')}
+						>Contact</button>
+					</section>
+					<main>
+						{mainContent}
+					</main>
+				</aside>
+
+			</Host>
 		);
 	}
 }
